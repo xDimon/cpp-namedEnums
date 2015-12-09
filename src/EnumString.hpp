@@ -43,13 +43,25 @@ public:
 	EnumString(std::initializer_list<std::pair<uint64_t, const char *>>);
 	virtual ~EnumString();
 
-	inline T add(const char *str, size_t len = 0)
+	inline T add(const char *str, size_t len)
 	{
 		return numByString(str, len, true);
 	}
-	inline T get(const char *str, size_t len = 0)
+	inline T add(const char *str)
+	{
+		return numByString(str, 0, true);
+	}
+	inline T get(const char *str, size_t len)
 	{
 		return numByString(str, len, false);
+	}
+	inline T get(const char *str)
+	{
+		return numByString(str, 0, false);
+	}
+	inline T get(char *str)
+	{
+		return numByString(str, 0, false);
 	}
 	template <typename t>
 	inline const char *get(t num)
